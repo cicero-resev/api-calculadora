@@ -62,7 +62,7 @@ async function calcularNaApi(a, b, operacao) {
         // Ao montar o fetch, substituir vírgula por ponto:
         const aFormatado = a.replace(',', '.');
         const bFormatado = b.replace(',', '.');
-        fetch(`http://localhost:5000/${operacao}?a=${aFormatado}&b=${bFormatado}`)
+        const resposta = await fetch(`http://localhost:5000/${operacao}?a=${aFormatado}&b=${bFormatado}`);
         const dados = await resposta.json();
 
         if (dados.erro) {
